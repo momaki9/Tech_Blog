@@ -1,0 +1,14 @@
+[
+    {
+        "name": "MVC",
+        "description": "Model, View, and Controller!"
+    },
+    {
+        "name": "JavaScript",
+        "description": "Javascript will always be prevelant"
+    },
+    {
+        "name": "MySQL",
+        "description": "Sequelize makes MySQL easy!"
+    }
+]
