@@ -11,10 +11,9 @@ BlogPost.init(
         primaryKey: true,
         autoIncrement: true
     },
-    name: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false
-
     },
     description: {
         type: DataTypes.STRING
@@ -27,7 +26,7 @@ BlogPost.init(
     blogger_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'blog-user',
+        model: 'user',
         key: 'id'
       }
     }
@@ -37,7 +36,7 @@ BlogPost.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'blog-post'
+    modelName: 'blog'
   }
    
 );

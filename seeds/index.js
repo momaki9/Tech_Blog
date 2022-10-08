@@ -6,13 +6,18 @@ const blogPostData = require('./blogPosts.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
+    // await BlogUser.bulkCreate(blogUserData);
+    // await BlogPost.bulkCreate(blogPostData);
 
-    const blogUsers = await BlogUser.bulkCreate(blogUserData);
+    const blogUsers = await BlogUser.bulkCreate(blogUserData, {
+        individualHooks: true,
+        returning: true,
+    });
 
     for (const post of blogPostData) {
         await BlogPost.create({
-            ...BlogPost,
-            blogger_id: blogUsers[Math.floor(Math.random() * blogUsers.length)].id
+            ...post,
+            blogger_id: blogUsers[Math.floor(Math.random() * blogUsers.length)].id,
         });
     }
 
