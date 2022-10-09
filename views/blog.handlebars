@@ -1,0 +1,16 @@
+<div class="menu-container">
+  <div class="card-header col-md-10">
+  </div>
+    <div>
+      {{#each blogPostData as |post|}}
+      <section class="section message is-dark">
+        <h3 class="title message-header">
+          {{post.title}} posted from {{post.user.name}}
+        </h3>
+        <p class="subtitle message-body">
+          {{post.description}}
+      </section>
+      {{/each}}
+    </div>
+  </div>
+</div>

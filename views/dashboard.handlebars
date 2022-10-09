@@ -1,15 +1,10 @@
-<div class="menu-container">
-  <div class="card-header col-md-10">
-  </div>
-    <div>
-      {{#each blogPostData as |post|}}
-      <h3>
-        {{post.title}} posted from {{post.user.name}}
-      </h3>
-      <p>
-        {{post.description}}
-      </p>
-      {{/each}}
-    </div>
-  </div>
+
+<div class="control">
+  <input class="input" type="text" placeholder="blog title">
 </div>
+<br>
+<div class="control">
+  <textarea class="textarea is-hovered" placeholder="blog content"></textarea>
+</div>
+<br>
+<button class="button is-dark">Add Post</button>

@@ -12,16 +12,25 @@ router.get('/', async (req, res) => {
             ],
             
         });
-        console.log(blogData)
+        // console.log(blogData)
         const blogPostData = blogData.map((post) => post.get({ plain: true}));
-        console.log(blogPostData)
-        res.render('dashboard', {
+        // console.log(blogPostData)
+        res.render('blog', {
             blogPostData
         });
     } catch (err) {
         res.status(500).json(err);
     }
     
+});
+
+router.get('/login', async (req, res) => {
+    res.render('login')
+});
+
+// Use withAuth middleware to prevent access to route
+router.get('/profile', async (req, res) => {
+    res.render('dashboard')
 });
 
 module.exports = router; 
