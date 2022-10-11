@@ -17,7 +17,8 @@ router.get('/', async (req, res) => {
         const blogPostData = blogData.map((post) => post.get({ plain: true}));
         // console.log(blogPostData)
         res.render('blog', {
-            blogPostData
+            blogPostData,
+            logged_in: req.session.logged_in 
         });
     } catch (err) {
         res.status(500).json(err);
@@ -38,7 +39,7 @@ router.get('/blog/:id', async (req, res) => {
   
       const project = projectData.get({ plain: true });
   
-      res.render('blog', {
+      res.render('post', {
         ...project,
         logged_in: req.session.logged_in
       });
@@ -52,7 +53,7 @@ router.get('/login', (req, res) => {
       res.redirect('/profile');
       return;
     }
-    res.render('signup');
+    res.render('login');
 });
 
 router.get('/signup', async (req, res) => {

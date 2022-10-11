@@ -1,0 +1,30 @@
+
+<h2>Hi there, {{name}}!</h2>
+<form class="new-blog-post">
+  <div class="control">
+    <input class="input" id="blog-title" type="text" placeholder="blog title">
+  </div>
+  <br>
+  <div class="control">
+    <textarea class="textarea is-hovered" id="blog-content" placeholder="blog content"></textarea>
+  </div>
+  <br>
+  <button class="button is-dark submit" type="submit">Add Post</button>
+</form>
+  {{#if blogPostData.length}}
+  <div class="blog-post">
+    <h3>Current Projects:</h3>
+
+    {{#each blogPostData as |entry|}}
+    <div>
+      <div>
+        <h4><a href="/project/{{entry.id}}">{{entry.name}}</a></h4>
+      </div>
+      <div>
+        <button class="button submit" type="submit" data-id="{{entry.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+<script src="./js/profile.js"></script>

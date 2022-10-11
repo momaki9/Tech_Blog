@@ -1,9 +1,9 @@
 const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#user-signup-name').value.trim();
-    const email = document.querySelector('#user-signup-email').value.trim();
-    const password = document.querySelector('#user-signup-password').value.trim();
+    const name = document.querySelector('.user-signup-name').value.trim();
+    const email = document.querySelector('.user-signup-email').value.trim();
+    const password = document.querySelector('.user-signup-password').value.trim();
   
     if (name && email && password) {
       const response = await fetch('/api/bloggers', {
