@@ -4,8 +4,8 @@
     <div>
       {{#each blogPostData as |post|}}
       <section class="section message is-dark">
-        <h3 class="title message-header">
-          {{post.title}} posted by: {{post.user.name}}
+        <a href="/blog/{{post.id}}" id="blog-link"><h3 class="title message-header">{{post.title}} posted by: {{post.user.name}}</a>
+          
         </h3>
         <p class="subtitle message-body">
           {{post.description}}

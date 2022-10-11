@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { BlogUser, BlogPost } = require('../models')
+const { BlogUser, BlogPost } = require('../models');
 const withAuth = require('../utils/authorization');
 
 router.get('/', async (req, res) => {
@@ -56,8 +56,9 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.get('/signup', async (req, res) => {
-    res.render('signup')
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
 });
 
 

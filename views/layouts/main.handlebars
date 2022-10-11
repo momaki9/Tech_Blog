@@ -11,9 +11,8 @@
       <h2 class="title">The Tech Blog</h2>
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <a href="/"><h3 class="navbar-item">Home</h3></a>
-        {{#if logged_in}}
         <a href="/profile"><h3 class="navbar-item">Dashboard</h3></a>
-        
+        {{#if logged_in}}
         <a><h3 class="navbar-item" id="logout-btn">Logout</h3></a>
         {{else}}
         <a href="/login"><h3 class="navbar-item">Login</h3></a>
