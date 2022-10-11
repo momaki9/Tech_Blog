@@ -18,17 +18,20 @@ const newCommentSection = (event) => {
 
 const newComment = async (event) => {
     event.preventDefault();
-    window.alert("getting somewhere")
     const content = document.querySelector('.comment-content').value.trim();
-
-    if (content) {
-        const response =await fetch(`/api/blog`, {
+    // const post_id = window.location.toString().split('/')[ window.location.toString.split("/").length - 1 ];
+    const post_id = window.location.pathname.replace("/blog/", "");
+    console.log(content)
+    console.log(post_id)
+    if (content && post_id) {
+        const response = await fetch(`/api/comments`, {
             method: 'POST',
-            body: JSON.stringify({ content }),
+            body: JSON.stringify({ content, post_id }),
             headers: { 'content-Type': 'application/json', },
         });
         if (response.ok) {
             window.alert("Comment added!");
+            // document.location.reload('/')
         } else {
             alert('Something went wrong! Please try again!')
         }
