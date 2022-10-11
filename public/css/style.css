@@ -1,3 +1,7 @@
 #blog-link {
      text-decoration: none; 
 }
+
+.hidden {
+     visibility: hidden;
+}
