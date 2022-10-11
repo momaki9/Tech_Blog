@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,9 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.25.0"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "bugs": {
     "url": "https://github.com/momaki9/Tech_Blog/issues"
