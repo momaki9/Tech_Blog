@@ -6,4 +6,10 @@
 <button class="add-reply">Reply</button>
 <div id="comment-section"></div>
 <button class="add-new-comment hidden"></button>
+<h1>{{user.name}}</h1>
+{{#each comments as |comment|}}
+<h1>
+  {{comment.content}}
+</h1>
+{{/each}}
 <script src="/js/comment.js"></script>

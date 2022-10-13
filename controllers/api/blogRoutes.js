@@ -15,12 +15,40 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
+
+  const {title , description} =  req.body;
+
+  try {
+    const projectData = await BlogPost.update(
+
+    {
+      title,
+      description,
+    },
+    {
+      where: {
+        id: req.params.id
+        
+      },
+    }
+    );
+    if (!projectData) {
+      res.status(404).json({message: 'Blog post update failed'})
+    }
+
+    res.status(200).json(projectData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.delete('/:id', async (req, res) => {
   try {
     const projectData = await BlogPost.destroy({
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
+        id: req.params.id
       },
     });
 
