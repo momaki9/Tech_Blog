@@ -19,10 +19,9 @@ const newCommentSection = (event) => {
 const newComment = async (event) => {
     event.preventDefault();
     const content = document.querySelector('.comment-content').value.trim();
-    // const post_id = window.location.toString().split('/')[ window.location.toString.split("/").length - 1 ];
     const post_id = window.location.pathname.replace("/blog/", "");
-    console.log(content)
-    console.log(post_id)
+    // console.log(content)
+    // console.log(post_id)
     if (content && post_id) {
         const response = await fetch(`/api/comments`, {
             method: 'POST',

@@ -7,11 +7,11 @@ const logout = async () => {
     if (response.ok) {
       document.location.replace('/');
       console.log("success")
-      console.log(response)
+      // console.log(response)
     } else {
       alert(response.statusText);
       console.log("failed")
-      console.log(response)
+      // console.log(response)
     }
   };
   

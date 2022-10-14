@@ -1,7 +1,9 @@
 
-<h2>Hi there, {{name}}!</h2>
+<h2 class="title is-3">Welcome to your dashboard, {{name}}!</h2>
+<h3 class="title is-3 message">Create New Post</h3>
 <form class="new-blog-post">
   <div class="control">
+    <label class="title is-5">Title</label>
     <input class="input" id="blog-title" type="text" placeholder="blog title">
   </div>
   <br>
@@ -11,4 +13,19 @@
   <br>
   <button class="button is-dark submit" type="submit">Add Post</button>
 </form>
+<h3 class="title is-3 message">Your Current Posts</h3>
+{{#each blogs as |blog|}}
+<article class="message">
+  <div class="message-header">
+    <p>
+      {{blog.title}}
+    </p>
+    <button>edit</button>
+    <button>delete</button>
+  </div>
+  <div class="message-body">
+    <p>{{blog.description}}</p>
+  </div>
+</article>
+{{/each}}
 <script src="./js/profile.js"></script>
