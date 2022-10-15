@@ -20,8 +20,6 @@ const newComment = async (event) => {
     event.preventDefault();
     const content = document.querySelector('.comment-content').value.trim();
     const post_id = window.location.pathname.replace("/blog/", "");
-    // console.log(content)
-    // console.log(post_id)
     if (content && post_id) {
         const response = await fetch(`/api/comments`, {
             method: 'POST',
@@ -30,7 +28,7 @@ const newComment = async (event) => {
         });
         if (response.ok) {
             window.alert("Comment added!");
-            // document.location.reload('/')
+            document.location.reload('/')
         } else {
             alert('Something went wrong! Please try again!')
         }

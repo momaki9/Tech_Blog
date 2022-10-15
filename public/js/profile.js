@@ -19,27 +19,74 @@ const newFormHandler = async (event) => {
         alert('Failed to create blog post');
       }
     }
-  };
+};
+
+document.querySelector('.new-blog-post').addEventListener('submit', newFormHandler);  
   
-  const delButtonHandler = async (event) => {
+
+  const deleteBlogPost = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
-  
-      const response = await fetch(`/api/blog/${id}`, {
-        method: 'DELETE',
+      const response = await fetch(`api/blog/${id}`, {
+        method: 'DELETE'
       });
-  
       if (response.ok) {
-        document.location.replace('/profile');
+        window.alert("Post deleted successfully!")
+        document.location.reload('/profile');
       } else {
-        alert('Failed to delete project');
+        alert('Failed to delete post. Please try again.')
       }
     }
-  };
+};
+
+document.querySelector('.delete-post').addEventListener('click', deleteBlogPost);
+
+const postEl = document.querySelector('.update-post')
+
+const updateBlogTitle = async (event) => {
+  const id = event.target.getAttribute('data-id')
+  const title = window.prompt("Enter the updated title:").trim();
+
+    if (title && id) {
+      const response = await fetch(`/api/blog/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ title }),
+        headers: {'Content-Type': 'application/json'},
+      });
+      if (response.ok) {
+        window.alert("Title updated!")
+        document.location.reload('/profile');
+      } else {
+        alert(response.statusText);
+      }
+    }
+};
+
+document.querySelector('.update-title').addEventListener('click', updateBlogTitle);
+
+const updateBlogContent = async (event) => {
+  const id = event.target.getAttribute('data-id')
+  const description = window.prompt("Enter the updated post content").trim();
+
+    if (description && id) {
+      const response = await fetch(`/api/blog/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ description }),
+        headers: {'Content-Type': 'application/json'},
+      });
+      if (response.ok) {
+        window.alert("Content updated!")
+        document.location.reload('/profile');
+      } else {
+        alert(response.statusText);
+      }
+    }
+};
+
+document.querySelector('.update-post').addEventListener('click', updateBlogContent);
+
   
-  document.querySelector('.new-blog-post').addEventListener('submit', newFormHandler);
+
   
-  document
-    .querySelector('.blog-post')
-    .addEventListener('submit', delButtonHandler);
+
   

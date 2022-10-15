@@ -13,15 +13,25 @@
   <br>
   <button class="button is-dark submit" type="submit">Add Post</button>
 </form>
+{{#if blogs}}
 <h3 class="title is-3 message">Your Current Posts</h3>
+{{/if}}
 {{#each blogs as |blog|}}
 <article class="message">
   <div class="message-header">
     <p>
       {{blog.title}}
     </p>
-    <button>edit</button>
-    <button>delete</button>
+    <div class="update-title">
+      <button data-id="{{blog.id}}">Update Post Title</button>
+    </div>
+    <div class="update-post">
+      <button data-id="{{blog.id}}">Update Post Content</button>
+    </div>
+    <div class="delete-post">
+      <button data-id="{{blog.id}}">Delete Post</button>
+    </div>
+    
   </div>
   <div class="message-body">
     <p>{{blog.description}}</p>

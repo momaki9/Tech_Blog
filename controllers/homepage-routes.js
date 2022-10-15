@@ -18,11 +18,7 @@ router.get('/', async (req, res) => {
             ],
             
         });
-        // console.log(blogData)
         const blogPostData = blogData.map((post) => post.get({ plain: true}));
-        // console.log(blogPostData)
-        // console.log(blogPostData[0].comments)
-
         res.render('blog', {
             blogPostData,
             logged_in: req.session.logged_in 
@@ -54,11 +50,6 @@ router.get('/blog/:id', async (req, res) => {
       });
   
       const project = projectData.get({ plain: true });
-      console.log("-------------------------")
-      console.log(project);
-      console.log("-------------------------")
-      console.log(project.comments);
-  
       res.render('post', {
         ...project,
         logged_in: req.session.logged_in
@@ -89,10 +80,7 @@ router.get('/profile', withAuth, async (req, res) => {
         attributes: { exclude: ['password'] },
         include: [{ model: BlogPost }],
       });
-      
       const userDataObj = userData.get({ plain: true });
-      console.log(userDataObj)
-  
       res.render('profile', {
         ...userDataObj,
         logged_in: true
@@ -101,38 +89,5 @@ router.get('/profile', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
 });
-
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     const blogData = await BlogPost.findAll({
-//       attributes: ['id', 'title', 'description', 'date_posted'],
-//         include: [
-//             {
-//                 model: BlogUser,
-//                 attributes: ['name']
-//             },
-//             {
-//               model: BlogComment,
-//               attributes: ['id', 'content', 'post_id', 'date_posted', 'user_id']
-//           },
-//         ],
-        
-//     });
-//     // console.log(blogData)
-//     const blogPostData = blogData.map((post) => post.get({ plain: true}));
-//     console.log(blogPostData)
-//     console.log(blogPostData[0].comments)
-
-//     res.render('profile', {
-//         blogPostData,
-//         logged_in: req.session.logged_in 
-//     });
-// } catch (err) {
-//     res.status(500).json(err);
-// }
-
-
-// });
-
 
 module.exports = router; 
