@@ -1,3 +1,8 @@
+let deleteBtn = document.querySelectorAll('.delete-post');
+const postEl = document.querySelectorAll('.update-post');
+const updateTitleBtn = document.querySelectorAll('.update-title');
+const updateContentBtn = document.querySelectorAll('.update-post');
+
 const newFormHandler = async (event) => {
     event.preventDefault();
   
@@ -14,6 +19,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
+        window.alert("Success!!");
         document.location.replace('/');
       } else {
         alert('Failed to create blog post');
@@ -39,10 +45,11 @@ document.querySelector('.new-blog-post').addEventListener('submit', newFormHandl
     }
 };
 
-document.querySelector('.delete-post').addEventListener('click', deleteBlogPost);
+for (let index = 0; index < deleteBtn.length; index++) {
+  deleteBtn[index].addEventListener('click', deleteBlogPost)
 
-const postEl = document.querySelector('.update-post')
-
+};
+ 
 const updateBlogTitle = async (event) => {
   const id = event.target.getAttribute('data-id')
   const title = window.prompt("Enter the updated title:").trim();
@@ -62,7 +69,10 @@ const updateBlogTitle = async (event) => {
     }
 };
 
-document.querySelector('.update-title').addEventListener('click', updateBlogTitle);
+for (let index = 0; index < updateTitleBtn.length; index++) {
+  updateTitleBtn[index].addEventListener('click', updateBlogTitle)
+
+};
 
 const updateBlogContent = async (event) => {
   const id = event.target.getAttribute('data-id')
@@ -83,10 +93,7 @@ const updateBlogContent = async (event) => {
     }
 };
 
-document.querySelector('.update-post').addEventListener('click', updateBlogContent);
+for (let index = 0; index < updateContentBtn.length; index++) {
+  updateContentBtn[index].addEventListener('click', updateBlogContent)
 
-  
-
-  
-
-  
+};
