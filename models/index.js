@@ -1,3 +1,4 @@
+//Setting up the associations between the table models
 const BlogUser = require('./BlogUser');
 const BlogPost = require('./BlogPost');
 const BlogComment = require('./BlogComment');

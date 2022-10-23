@@ -1,26 +1,27 @@
+//Setting up the blog comment model
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class BlogComment extends Model {}
+class BlogComment extends Model { }
 
 BlogComment.init(
   {
     id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
     content: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false
     },
     post_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'blog',
-            key: 'id'
-          }
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'blog',
+        key: 'id'
+      }
     },
     date_posted: {
       type: DataTypes.DATE,
@@ -42,7 +43,7 @@ BlogComment.init(
     underscored: true,
     modelName: 'comment'
   }
-   
+
 );
 
 module.exports = BlogComment;

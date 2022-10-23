@@ -1,9 +1,8 @@
+// Setting up the blog user model and implementing bcrypt to store their password as a hash value
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-
-//add code here to see if user is logged in
 class BlogUser extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
@@ -13,14 +12,14 @@ class BlogUser extends Model {
 BlogUser.init(
   {
     id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
     name: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false
 
     },
     email: {
@@ -32,11 +31,11 @@ BlogUser.init(
       }
     },
     password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [8]
-        }
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8]
+      }
 
     }
   },
@@ -57,7 +56,7 @@ BlogUser.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'user'
-  }  
+  }
 );
 
 module.exports = BlogUser;

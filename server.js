@@ -1,3 +1,4 @@
+//setting up the dependencies for the app
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
@@ -11,6 +12,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// setting up the user session
 const sess = {
     secret: 'Restricted Area',
     cookie: {
@@ -27,7 +29,7 @@ const sess = {
 };
 
 app.use(session(sess));
-
+//defining the handlebars as the engine for the app
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars')
 

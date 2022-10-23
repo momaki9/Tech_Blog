@@ -1,3 +1,4 @@
+// script to be run on client side to all for new users to sign up
 const signupFormHandler = async (event) => {
     event.preventDefault();
   

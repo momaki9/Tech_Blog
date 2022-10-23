@@ -1,3 +1,4 @@
+// script to be run to allow users with accounts to log into the app
 const loginFormHandler = async (event) => {
     event.preventDefault();
   

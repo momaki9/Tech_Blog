@@ -1,8 +1,7 @@
-
+// script to be run to allow logged in users to add comments to existing blog posts
 const reply = document.querySelector('.add-reply');
 const comment = document.querySelector('#comment-section');
 const submit = document.querySelector('.add-new-comment');
-
 
 const newCommentSection = (event) => {
     event.preventDefault();
@@ -13,8 +12,6 @@ const newCommentSection = (event) => {
     submit.textContent = "Add Reply";
     comment.appendChild(newEl);
 };
-
-
 
 const newComment = async (event) => {
     event.preventDefault();
@@ -36,5 +33,4 @@ const newComment = async (event) => {
 };
 
 reply.addEventListener('click', newCommentSection)
-
 submit.addEventListener('click', newComment)
